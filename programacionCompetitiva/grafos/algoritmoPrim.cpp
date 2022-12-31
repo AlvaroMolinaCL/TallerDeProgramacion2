@@ -1,15 +1,20 @@
-#include <bits/stdc++.h>
+/* Algoritmo de Prim */
+
+#include <fstream>
+#include <iostream>
+#include <queue>
+#include <vector>
 
 using namespace std;
 
 vector<vector<pair<int, int>>> listaAdyacencia;
-vector<int> vDistanciasa;
+vector<int> vDistancias;
 
 void nuevaLista(int n)
 {
 	for (int i = 0; i <= n; i++)
 	{
-		vDistanciasa.push_back(INT32_MAX);
+		vDistancias.push_back(INT32_MAX);
 		vector<pair<int, int>> nodo = {};
 		listaAdyacencia.push_back(nodo);
 	}
@@ -18,6 +23,7 @@ void nuevaLista(int n)
 void nuevaArista(int nodo1, int nodo2, int peso)
 {
 	listaAdyacencia[nodo1].push_back(pair<int, int>(nodo2, peso));
+	listaAdyacencia[nodo2].push_back(pair<int, int>(nodo1, peso));
 }
 
 void imprimirLista()
@@ -33,39 +39,31 @@ void imprimirLista()
 	}
 }
 
-void imprimirGrafo()
+void prim()
 {
-	for (int i = 0; i < listaAdyacencia.size(); i++)
-	{
-		cout << i << ": ";
-		for (int j = 0; j < listaAdyacencia[i].size(); j++)
-		{
-			cout << listaAdyacencia[i][j].first << " " << listaAdyacencia[i][j].second << " ";
-		}
-		cout << endl;
-	}
-}
+	vDistancias[1] = 0;
 
-void dijkstra(int nodoFinal)
-{
-	vDistanciasa[nodoFinal] = 0;
 	priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> siguiente;
-	siguiente.push(pair<int, int>(0, nodoFinal));
+	siguiente.push(pair<int, int>(0, 1));
+
 	while (!siguiente.empty())
 	{
 		int nodo = siguiente.top().second;
 		int distancia = siguiente.top().first;
+
 		siguiente.pop();
-		if (distancia <= vDistanciasa[nodo])
+
+		if (distancia <= vDistancias[nodo])
 		{
 			for (int i = 0; i < listaAdyacencia[nodo].size(); i++)
 			{
 				int vecino = listaAdyacencia[nodo][i].first;
 				int peso = listaAdyacencia[nodo][i].second;
-				if (vDistanciasa[vecino] > vDistanciasa[nodo] + peso)
+
+				if (vDistancias[vecino] > peso)
 				{
-					vDistanciasa[vecino] = vDistanciasa[nodo] + peso;
-					siguiente.push(pair<int, int>(vDistanciasa[vecino], vecino));
+					vDistancias[vecino] = peso;
+					siguiente.push(pair<int, int>(vDistancias[vecino], vecino));
 				}
 			}
 		}
@@ -74,10 +72,34 @@ void dijkstra(int nodoFinal)
 
 int main(int argc, char const *argv[])
 {
-	#ifndef ONLINE_JUDGE
+#ifndef ONLINE_JUDGE
 	ifstream cin("input.txt");
 	ofstream cout("output.txt");
-	#endif
-	
+#endif
+
+	int casosPrueba;
+	cin >> casosPrueba;
+
+	for (int i = 0; i < casosPrueba; i++)
+	{
+		int n, m, nodo1, nodo2, peso;
+		cin >> n >> m;
+		nuevaLista(n);
+		for (int j = 0; j < m; j++)
+		{
+			cin >> nodo1 >> nodo2 >> peso;
+			nuevaArista(nodo1, nodo2, peso);
+		}
+		prim();
+		int suma = 0;
+		for (int j = 1; j < vDistancias.size(); j++)
+		{
+			suma += vDistancias[j];
+		}
+		cout << suma << endl;
+		listaAdyacencia.clear();
+		vDistancias.clear();
+	}
+
 	return 0;
 }
