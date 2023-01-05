@@ -7,14 +7,22 @@ Este repositorio contiene material de estudio, códigos y ejercicios resueltos p
 ## Contenidos
 
 ### Programación orientada a objetos (POO)
-1. Desarrollo orientado a objetos (DOO)
+1. [Introducción a la programación orientada a objetos (POO)](https://github.com/AlvaroMolinaCL/TallerDeProgramacion2/tree/main/POO/01_introPOO)
+2. [Desarrollo orientado a objetos (DOO)](https://github.com/AlvaroMolinaCL/TallerDeProgramacion2/tree/main/POO/02_DOO)
 
 ### Programación competitiva
 
-#### Paradigmas
-1. Búsqueda completa / Complete search
+#### Introducción
+1. [Ejercicios de programación simples](https://github.com/AlvaroMolinaCL/TallerDeProgramacion2/tree/main/programacionCompetitiva/01_ejerciciosSimples)
+2. [Ejercicios de programación medios](https://github.com/AlvaroMolinaCL/TallerDeProgramacion2/tree/main/programacionCompetitiva/02_ejerciciosMedios)
 
-#### Grafos
-1. Recorrido de grafos / Recorrido en profundidad (DFS)
-2. Árbol recubridor de peso mínimo (ARPM) / Algoritmo de Prim
-3. Problema del camino más corto / Algoritmo de Dijkstra
+#### Paradigmas (*)
+1. [Búsqueda completa / Complete search](https://github.com/AlvaroMolinaCL/TallerDeProgramacion2/tree/main/programacionCompetitiva/03_busquedaCompleta)
+
+#### Grafos (**)
+1. [Recorrido de grafos / Recorrido en profundidad (DFS)](https://github.com/AlvaroMolinaCL/TallerDeProgramacion2/tree/main/programacionCompetitiva/04_grafos/recorridoGrafos)
+2. [Árbol recubridor de peso mínimo (ARPM) / Algoritmo de Prim](https://github.com/AlvaroMolinaCL/TallerDeProgramacion2/tree/main/programacionCompetitiva/04_grafos/ARPM_y_CaminoMasCorto)
+3. [Problema del camino más corto / Algoritmo de Dijkstra](https://github.com/AlvaroMolinaCL/TallerDeProgramacion2/tree/main/programacionCompetitiva/04_grafos/ARPM_y_CaminoMasCorto)
+
+(*) En el semestre que se impartió este curso, no se alcanzaron a abordar los paradigmas de Programación Dinámica (DP), Divide y Vencerás, y Paradigma Voraz.
+(**) En el semestre que se impartió este curso, no se alcanzó a abordar el problema de flujo en redes.
