@@ -17,4 +17,5 @@
 3. [Problema del camino más corto / Algoritmo de Dijkstra](https://github.com/AlvaroMolinaCL/TallerDeProgramacion2/tree/main/programacionCompetitiva/04_grafos/ARPM_y_CaminoMasCorto)
 
 (*) En el semestre que se impartió este curso, no se alcanzaron a abordar los paradigmas de Programación Dinámica (DP), Divide y Vencerás, y Paradigma Voraz.
+
 (**) En el semestre que se impartió este curso, no se alcanzó a abordar el problema de flujo en redes.
